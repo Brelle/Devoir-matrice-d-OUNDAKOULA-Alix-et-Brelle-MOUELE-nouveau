@@ -137,5 +137,17 @@ int nbclient() {
 int main(){
 	remplirMatFact();
 	int nbclient();
-	 cout<<"Le nombre total de client est  "<< <endl;
+	 cout<<"Le nombre total de client est  "<< nbr <<endl;
 }
+// Total inscription
+  int totalInscriptions(Facture MatFact[][100], int N, int M) {
+    int Tt = 0;
+
+    for (int i = 0; i < N; i++)
+        for (int j = 0; j < M; j++)
+            if (MatFact[i][j].objet == "Inscription")
+                Tt++;
+
+    return Tt;
+  }
+  
