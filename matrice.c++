@@ -142,3 +142,4 @@ int main(){
 	 cout<<"Le nombre total de client est  "<< r <<endl;
 }
 njhjh
+jhhj
