@@ -87,7 +87,7 @@ void remplirMatFact() {
 
 }
 //remplir client
-void remplirClient(){
+void remplirClient(struct client tabcl[P]){
 	tabl[0].idcl ="cl001";
 	tabl[0].nom ="Moussa SARR";
 	tabl[0].filiere ="IR";
@@ -179,7 +179,8 @@ double moyenneMensualites(Facture MatFact[][100], int N, int M) {
                 somme += MatFact[i][j].montant;
                 nbr++;
             }
- return 0;
+
+    if (nbr == 0) return 0;
     return (double)somme / nbr;
 }
 
