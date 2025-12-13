@@ -169,4 +169,18 @@ int main(){
     }
     return Ttf;
 } 
-  
+//Moyenne mensualite
+double moyenneMensualites(Facture MatFact[][100], int N, int M) {
+    int somme = 0, nbr = 0;
+
+    for (int i = 0; i < N; i++)
+        for (int j = 0; j < M; j++)
+            if (MatFact[i][j].objet == "mensualite") {
+                somme += MatFact[i][j].montant;
+                nbr++;
+            }
+
+    if (nbr == 0) return 0;
+    return (double)somme / nbr;
+}
+
