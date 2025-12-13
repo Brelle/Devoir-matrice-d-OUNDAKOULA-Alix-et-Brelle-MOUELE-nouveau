@@ -139,16 +139,34 @@ int main(){
 	int nbclient();
 	 cout<<"Le nombre total de client est  "<< nbr <<endl;
 	 int totalInscriptions();
+	 cout<"le total des inscription est:"<<Tt<< endl;
+	 int totalInscriptionFiliere()
+	 cout<<"il y a un total de "<<Ttf<<"inscription dans la filiere" <<filiere<< endl;
 }
 // Total inscription
   int totalInscriptions() {
     int Tt = 0;
-
-    for (int i = 0; i < N; i++)
-        for (int j = 0; j < M; j++)
-            if (MatFact[i][j].objet == "Inscription")
-                Tt++;
-
-    return Tt;
+    for (int i = 0; i < N; i++){
+		for (int j = 0; j < M; j++){
+			if (tablfact[i][j].objet == "inscription")
+			Tt++;
+		}
+		return Tt;
+	}
   }
+  // Total inscription par filière
+  int totalInscriptionFiliere() {
+    int Ttf = 0;
+    string idcl;
+    for (int i = 0; i < P; i++) {
+        if (MatClient[i].filiere == filiere) {
+            idcl = MatClient[i].idcl;
+            for (int j = 0; j < N; j++)
+                for (int k = 0; k < M; k++)
+                    if (MatFact[j][k].objet == "Inscription" && MatFact[j][k].idcl == idcl)
+                        Ttf++;
+        }
+    }
+    return Ttf;
+} 
   
