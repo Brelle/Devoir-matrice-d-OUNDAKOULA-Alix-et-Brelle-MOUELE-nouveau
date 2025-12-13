@@ -141,3 +141,4 @@ int main(){
 	int r= nbclient();
 	 cout<<"Le nombre total de client est  "<< r <<endl;
 }
+njhjh
