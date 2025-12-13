@@ -135,14 +135,7 @@ int nbclient() {
 };
 
 int main(){
-		 cout<<"Bonjour  "<<endl;
 	remplirMatFact();
-	 cout<<"Bonsoir  "<<endl;
-	int r= nbclient();
-	 cout<<"Le nombre total de client est  "<< r <<endl;
+	int nbclient();
+	 cout<<"Le nombre total de client est  "<< <endl;
 }
-njhjh
-jhhj
-kjuu
-nbhgh
-,hjhh
