@@ -183,4 +183,5 @@ double moyenneMensualites(Facture MatFact[][100], int N, int M) {
     if (nbr == 0) return 0;
     return (double)somme / nbr;
 }
+hkkl
 
