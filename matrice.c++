@@ -138,9 +138,10 @@ int main(){
 	remplirMatFact();
 	int nbclient();
 	 cout<<"Le nombre total de client est  "<< nbr <<endl;
+	 int totalInscriptions();
 }
 // Total inscription
-  int totalInscriptions(Facture MatFact[][100], int N, int M) {
+  int totalInscriptions() {
     int Tt = 0;
 
     for (int i = 0; i < N; i++)
