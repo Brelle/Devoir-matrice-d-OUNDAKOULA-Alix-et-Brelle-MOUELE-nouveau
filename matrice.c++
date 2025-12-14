@@ -1,0 +1,334 @@
+<<<<<<< HEAD
+=======
+#include<iostream>
+#include<string>
+#include<cstdlib>
+#define n 4
+#define m 3
+#define P 30
+using namespace std;
+struct facture{
+	int idFact;
+	float montant;
+	string objet;
+	string idcl;
+};
+struct client{
+	string idcl;
+	string nom;
+	string filiere;
+	string niveau;
+};
+ MatFact tablfact[N][M];
+ MatClient tabcl[P];
+int i, j, k;
+int nbr, Ttm, Ttp, TtN, TtEI, TtEM, TtET;
+float Mm;
+string idcl, filiere, niveau, nomE;
+
+
+
+
+//remplir Facture
+void remplirMatFact() {
+	tablfact[0][0].idFact = 1;
+	tablfact[0][1].montant = 150000;
+	tablfact[0][2].objet = "inscription";
+	tablfact[0][3].idcl = "cl002";
+	
+	tablfact[1][0].idFact = 2;
+	tablfact[1][1].montant = 200000;
+	tablfact[1][2].objet = "mensualite";
+	tablfact[1][3].idcl = "cl002";
+	
+	tablfact[2][0].idFact = 3;
+	tablfact[2][1].montant = 250000;
+	tablfact[2][2].objet = "incription";
+	tablfact[2][3].idcl = "cl001";
+	
+	tablfact[3][0].idFact = 4;
+	tablfact[3][1].montant = 600000;
+	tablfact[3][2].objet = "mensualite";
+	tablfact[3][3].idcl = "cl001";
+		
+	tablfact[4][0].idFact = 5;
+	tablfact[4][1].montant = 150000;
+	tablfact[4][2].objet = "tenue";
+	tablfact[4][3].idcl = "cl002";
+	  	
+	tablfact[5][0].idFact = 6;
+	tablfact[5][1].montant = 250000;
+	tablfact[5][2].objet = "inscription";
+	tablfact[5][3].idcl= "cl003";
+	  
+	tablfact[6][0].idFact = 7;
+	tablfact[6][1].montant = 100000;
+	tablfact[6][2].objet = "tenue";
+	tablfact[6][3].idcl = "cl003";
+			
+	tablfact[7][0].idFact = 8;
+	tablfact[7][1].montant = 800000;
+	tablfact[7][2].objet = "mensualite";
+	tablfact[7][3].idcl = "cl003";
+				
+	tablfact[8][0].idFact = 9;
+	tablfact[8][1].montant = 700000;
+	tablfact[8][2].objet = "mensualite";
+	tablfact[8][3].idcl = "cl002";
+		
+	tablfact[9][0].idFact = 10;
+	tablfact[9][1].montant = 200000;
+	tablfact[9][2].objet = "tenue";
+	tablfact[9][3].idcl = "cl004";
+				
+	tablfact[10][0].idFact = 11;
+	tablfact[10][1].montant = 400000;
+	tablfact[10][2].objet = "inscription";
+	tablfact[10][3].idcl = "cl005";
+				
+	tablfact[11][0].idFact = 12;
+	tablfact[11][1].montant = 300000;
+	tablfact[11][2].objet = "inscription";
+	 tablfact[11][3].idcl = "cl006";
+}
+//remplir client
+void remplirClient(struct client tabcl[P]){
+	tabl[0].idcl ="cl001";
+	tabl[0].nom ="Moussa SARR";
+	tabl[0].filiere ="IR";
+	tabl[0].niveau ="Master2";
+	
+	tabl[1].idcl="cl002";
+	tabl[1].nom ="Jean Diouf";
+	tabl[1].filiere ="IR";
+	tabl[1].niveau ="Master2";
+	
+	tabl[2].idcl="cl003";
+	tabl[2].nom ="Djibrif Fall";
+	tabl[2].filiere ="MAI";
+	tabl[2].niveau ="Master1";
+	
+	tabl[3].idcl="cl004";
+	tabl[3].nom ="Oumar Seck";
+	tabl[3].filiere ="IR";
+	tabl[3].niveau ="Master2";
+	
+	tabl[4].idcl="cl005";
+	tabl[4].nom ="Awa Ly";
+	tabl[4].filiere ="MAI";
+	tabl[4].niveau ="Master2";
+	
+	tabl[5].idcl="cl006";
+	tabl[5].nom ="Marienne Fall";
+	tabl[5].filiere ="MAI";
+	tabl[5].niveau ="Master1";
+	
+	tabl[6].idcl ="cl007";
+	tabl[6].nom ="Oumy Dieng";
+	tabl[6].filiere ="IR";
+	tabl[6].niveau ="Master1";
+	
+	tabl[7].idcl ="cl008";
+	tabl[7].nom ="Marty Mbaye";
+	tabl[7].filiere ="IR";
+	tabl[7].niveau ="Master2";	
+}
+//Nombre de client
+int nbclient() {
+	
+	return P;
+};
+
+int main(){
+	remplirMatFact();
+	int nbclient();
+	 cout<<"Le nombre total de client est  "<< nbr << endl;
+	 int totalInscriptions();
+	 cout<"le total des inscription est:"<<Tt<< endl;
+	 int totalInscriptionFiliere()
+	 cout<<"il y a un total de "<<Ttf<<"inscription dans la filiere" <<filiere<< endl;
+	 float moyenneMensualites()
+	 cout<<"la moyenne monsualite est de":<<Mm<< endl;
+	 int totalPaiementClient()
+	 cout<< "il y a eu un total de": <<Ttp<< endl;
+}
+// Total inscription
+  int totalInscriptions() {
+    int Tt = 0;
+    for (int i = 0; i < n; i++){
+		for (int j = 0; j < m; j++){
+			if (tablfact[i][j].objet == "inscription")
+			Tt++;
+		}
+		return Tt;
+	}
+  }
+// Total inscription par filiere
+  int totalInscriptionFiliere() {
+    Ttf = 0;
+    idcl=""
+	cout<<"saisir la filiere"<< endl;
+	getline(cin,filiere);
+    for (int i = 0; i < P; i++) {
+        if (MatClient[i].filiere == filiere) {
+            idcl = MatClient[i].idcl;
+            for (int j = 0; j < n; j++)
+                for (int k = 0; k < m; k++)
+                    if (MatFact[j][k].objet == "Inscription" && MatFact[j][k].idcl == idcl)
+                        Ttf++;
+        }
+    }
+    return Ttf;
+} 
+//Moyenne mensualite
+	float moyenneMensualites() {
+    int somme = 0, nbr = 0;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            if (MatFact[i][j].objet == "mensualite") {
+                somme += MatFact[i][j].montant;
+                nbr++;
+            }
+        }
+    }
+
+    if (nbr == 0) return 0;
+    return (float)somme / nbr;
+}
+//Total paiement idcl
+int totalPaiementClient(){
+	Ttp = 0
+	cout<<"saisir l'id du client"<< endl;
+	getline(cin,idcl);
+	for (i = 0; i < N; i++){
+		for (j = 0; j < m; i++){
+			if (MatFact[i][j].idcl == idcl){
+				Ttp+= MatFact[i][j].montant
+			}
+		}
+	}
+	    return Ttp;
+}
+//Total paiement par niveau
+int totalPaiementNiveau(){
+	TtN = 0;
+	cout<<"saisir le niveau du client"<<endl;
+	getline(cin,niveau);
+	for (int i = 0; i < P; i++){
+		if (MatClient[i].niveau == niveau){
+		 idcl= MatClient[i].idcl;
+		for (j= 0;j < n; n ++){
+			for (k= 0;k < n; k++){
+				if (MatClient[j][k].idcl== idcl){
+					 TtN +=tablfact[j][k].montant
+				}
+			}
+		}
+	}
+	 return TtN;
+}
+// Total paiement etudiant
+void totalPaiementEtudiant(){
+    TtEI = 0, TtEM = 0, TtET = 0;
+    nomE="";
+	cout<<"saisir le nom de l'etudiant"<<endl;
+	getline(cin,nomE),
+	for (i = 0; i < P; i++){
+		if (MatClient[i].nom == nom){
+			idcl = MatClient[i].idcl;
+		}
+		for (j= 0; j < n; j++){
+			for (k = 0; k < m; k++) {
+				if (MatFact[j][k].objet == "Inscription"{
+					TtEI += MatFact[j][k].montant;
+					else if (MatFact[j][k].objet == "mensualite"){
+						TtEM += MatFact[j][k].montant;
+						else if (MatFact[j][k].objet == "Tenue"){
+							TtET += MatFact[j][k].montant;
+						}
+					}
+				}
+			
+
+			}
+		}
+	}
+}
+void listePaiementNomEtudiant() {
+    string nomET;
+    string numclient = "";
+    float montantIN = 0;
+    float montantME = 0;
+    float montantTENUE = 0;
+    bool trouve = false;
+
+    cout << "Veuillez saisir le nom de l'etudiant : ";
+    getline(cin, nomET);
+
+    // Recherche du client par nom
+    for (int i = 0; i < P; i++) {
+        if (tabl[i].nom == nomET) {
+            numclient = tabl[i].idcl;
+            trouve = true;
+            break;
+        }
+    }
+
+    // Si l'étudiant n'existe pas
+    if (!trouve) {
+        cout << "L'etudiant n'est pas sur la liste" << endl;
+        return;
+    }
+
+    // Parcours des factures
+    for (int j = 0; j < 12; j++) {
+        if (tablfact[j][3].idcl == numclient) {
+
+            if (tablfact[j][2].objet == "inscription") {
+                montantIN += tablfact[j][1].montant;
+            }
+            else if (tablfact[j][2].objet == "mensualite") {
+                montantME += tablfact[j][1].montant;
+            }
+            else if (tablfact[j][2].objet == "tenue") {
+                montantTENUE += tablfact[j][1].montant;
+            }
+        }
+    }
+
+    // Affichage des résultats
+    cout << "\nNom : " << nomET << endl;
+    cout << "Objet : inscription | Montant : " << montantIN << " FCFA" << endl;
+    cout << "Objet : mensualite  | Montant : " << montantME << " FCFA" << endl;
+    cout << "Objet : tenue       | Montant : " << montantTENUE << " FCFA" << endl;
+}
+    // MONTANT MAXIMUM 
+       float maxMontantPaiement() {
+    float max = tabFact[0].montant;
+
+    for (int i = 1; i < F; i++) {
+        if (tabFact[i].montant > max) {
+            max = tabFact[i].montant;
+        }
+    }
+    return max;
+}
+     int main() {
+
+    remplirFactures();
+    remplirClients();
+
+    float maxMontant = maxMontantPaiement();
+
+    cout << "-----------------------------------" << endl;
+    cout << "Le montant de paiement le plus eleve est : "
+         << maxMontant << " FCFA" << endl;
+    cout << "-----------------------------------" << endl;
+
+    return 0;
+}
+
+       
+
+
+>>>>>>> 0f0fb9fe99295272ce27dfc4289a3c26d78e12a3
