@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 #include<iostream>
 #include<string>
 #include<cstdlib>
@@ -25,9 +23,6 @@ int i, j, k;
 int nbr, Ttm, Ttp, TtN, TtEI, TtEM, TtET;
 float Mm;
 string idcl, filiere, niveau, nomE;
-
-
-
 
 //remplir Facture
 void remplirMatFact() {
@@ -162,7 +157,7 @@ int main(){
 		}
 		return Tt;
 	}
-  }
+  };
 // Total inscription par filiere
   int totalInscriptionFiliere() {
     Ttf = 0;
@@ -179,7 +174,7 @@ int main(){
         }
     }
     return Ttf;
-} 
+};
 //Moyenne mensualite
 	float moyenneMensualites() {
     int somme = 0, nbr = 0;
@@ -194,7 +189,7 @@ int main(){
 
     if (nbr == 0) return 0;
     return (float)somme / nbr;
-}
+};
 //Total paiement idcl
 int totalPaiementClient(){
 	Ttp = 0
@@ -208,7 +203,7 @@ int totalPaiementClient(){
 		}
 	}
 	    return Ttp;
-}
+};
 //Total paiement par niveau
 int totalPaiementNiveau(){
 	TtN = 0;
@@ -226,7 +221,7 @@ int totalPaiementNiveau(){
 		}
 	}
 	 return TtN;
-}
+};
 // Total paiement etudiant
 void totalPaiementEtudiant(){
     TtEI = 0, TtEM = 0, TtET = 0;
@@ -327,8 +322,3 @@ void listePaiementNomEtudiant() {
 
     return 0;
 }
-
-       
-
-
->>>>>>> 0f0fb9fe99295272ce27dfc4289a3c26d78e12a3
