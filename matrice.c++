@@ -19,72 +19,68 @@ struct client{
 };
  facture tablfact[n][m];
 client tabl [P];
-int i,j;
+int i,j,k;
 //remplir Facture
 void remplirMatFact() {
-	 tablfact[0][0].idFact = 1;
-	 tablfact[0][1].montant = 150000;
-	 tablfact[0][2].objet = "inscription";
-	 tablfact[0][3].idcl = "cl002";
+	tablfact[0][0].idFact = 1;
+	tablfact[0][1].montant = 150000;
+	tablfact[0][2].objet = "inscription";
+	tablfact[0][3].idcl = "cl002";
 	
-	 tablfact[1][0].idFact = 2;
-	 tablfact[1][1].montant = 200000;
-	 tablfact[1][2].objet = "mensualite";
-	 tablfact[1][3].idcl = "cl002";
-		
-	 tablfact[2][0].idFact = 3;
-	 tablfact[2][1].montant = 250000;
-	 tablfact[2][2].objet = "incription";
-	 tablfact[2][3].idcl = "cl001";
+	tablfact[1][0].idFact = 2;
+	tablfact[1][1].montant = 200000;
+	tablfact[1][2].objet = "mensualite";
+	tablfact[1][3].idcl = "cl002";
 	
-	 tablfact[3][0].idFact = 4;
-	 tablfact[3][1].montant = 600000;
-	 tablfact[3][2].objet = "mensualite";
-	 tablfact[3][3].idcl = "cl001";
+	tablfact[2][0].idFact = 3;
+	tablfact[2][1].montant = 250000;
+	tablfact[2][2].objet = "incription";
+	tablfact[2][3].idcl = "cl001";
+	
+	tablfact[3][0].idFact = 4;
+	tablfact[3][1].montant = 600000;
+	tablfact[3][2].objet = "mensualite";
+	tablfact[3][3].idcl = "cl001";
 		
-	 tablfact[4][0].idFact = 5;
-	 tablfact[4][1].montant = 150000;
-	 tablfact[4][2].objet = "tenue";
-	 tablfact[4][3].idcl = "cl002";
+	tablfact[4][0].idFact = 5;
+	tablfact[4][1].montant = 150000;
+	tablfact[4][2].objet = "tenue";
+	tablfact[4][3].idcl = "cl002";
 	  	
-	 tablfact[5][0].idFact = 6;
-	 tablfact[5][1].montant = 250000;
-	 tablfact[5][2].objet = "inscription";
-	 tablfact[5][3].idcl= "cl003";
+	tablfact[5][0].idFact = 6;
+	tablfact[5][1].montant = 250000;
+	tablfact[5][2].objet = "inscription";
+	tablfact[5][3].idcl= "cl003";
 	  
-	 tablfact[6][0].idFact = 7;
-	 tablfact[6][1].montant = 100000;
-	 tablfact[6][2].objet = "tenue";
-	 tablfact[6][3].idcl = "cl003";
+	tablfact[6][0].idFact = 7;
+	tablfact[6][1].montant = 100000;
+	tablfact[6][2].objet = "tenue";
+	tablfact[6][3].idcl = "cl003";
 			
-	 tablfact[7][0].idFact = 8;
-	 tablfact[7][1].montant = 800000;
-	 tablfact[7][2].objet = "mensualite";
-	 tablfact[7][3].idcl = "cl003";
+	tablfact[7][0].idFact = 8;
+	tablfact[7][1].montant = 800000;
+	tablfact[7][2].objet = "mensualite";
+	tablfact[7][3].idcl = "cl003";
 				
-	 tablfact[8][0].idFact = 9;
-	 tablfact[8][1].montant = 700000;
-	 tablfact[8][2].objet = "mensualite";
-	 tablfact[8][3].idcl = "cl002";
+	tablfact[8][0].idFact = 9;
+	tablfact[8][1].montant = 700000;
+	tablfact[8][2].objet = "mensualite";
+	tablfact[8][3].idcl = "cl002";
 		
-	 tablfact[9][0].idFact = 10;
-	 tablfact[9][1].montant = 200000;
-	 tablfact[9][2].objet = "tenue";
-	 tablfact[9][3].idcl = "cl004";
+	tablfact[9][0].idFact = 10;
+	tablfact[9][1].montant = 200000;
+	tablfact[9][2].objet = "tenue";
+	tablfact[9][3].idcl = "cl004";
 				
-	  tablfact[10][0].idFact = 11;
-	  tablfact[10][1].montant = 400000;
-	  tablfact[10][2].objet = "inscription";
-	  tablfact[10][3].idcl = "cl005";
+	tablfact[10][0].idFact = 11;
+	tablfact[10][1].montant = 400000;
+	tablfact[10][2].objet = "inscription";
+	tablfact[10][3].idcl = "cl005";
 				
-	  tablfact[11][0].idFact = 12;
-	  tablfact[11][1].montant = 300000;
-	  tablfact[11][2].objet = "inscription";
-	  tablfact[11][3].idcl = "cl006";
-				
-
-
-
+	tablfact[11][0].idFact = 12;
+	tablfact[11][1].montant = 300000;
+	tablfact[11][2].objet = "inscription";
+	 tablfact[11][3].idcl = "cl006";
 }
 //remplir client
 void remplirClient(struct client tabcl[P]){
@@ -137,32 +133,36 @@ int nbclient() {
 int main(){
 	remplirMatFact();
 	int nbclient();
-	 cout<<"Le nombre total de client est  "<< nbr <<endl;
+	 cout<<"Le nombre total de client est  "<< nbr << endl;
 	 int totalInscriptions();
 	 cout<"le total des inscription est:"<<Tt<< endl;
 	 int totalInscriptionFiliere()
 	 cout<<"il y a un total de "<<Ttf<<"inscription dans la filiere" <<filiere<< endl;
+	 int totalInscriptionFiliere()
+	 cout<<"la moyenne monsualite est de":<<Mm<< endl;
 }
 // Total inscription
   int totalInscriptions() {
     int Tt = 0;
-    for (int i = 0; i < N; i++){
-		for (int j = 0; j < M; j++){
+    for (int i = 0; i < n; i++){
+		for (int j = 0; j < m; j++){
 			if (tablfact[i][j].objet == "inscription")
 			Tt++;
 		}
 		return Tt;
 	}
   }
-  // Total inscription par filière
+// Total inscription par filiere
   int totalInscriptionFiliere() {
-    int Ttf = 0;
-    string idcl;
+    Ttf = 0;
+    idcl=""
+	cout<<"saisir la filiere"<< endl;
+	getline(cin,filiere);
     for (int i = 0; i < P; i++) {
         if (MatClient[i].filiere == filiere) {
             idcl = MatClient[i].idcl;
-            for (int j = 0; j < N; j++)
-                for (int k = 0; k < M; k++)
+            for (int j = 0; j < n; j++)
+                for (int k = 0; k < m; k++)
                     if (MatFact[j][k].objet == "Inscription" && MatFact[j][k].idcl == idcl)
                         Ttf++;
         }
@@ -170,18 +170,53 @@ int main(){
     return Ttf;
 } 
 //Moyenne mensualite
-double moyenneMensualites(Facture MatFact[][100], int N, int M) {
+	float moyenneMensualites() {
     int somme = 0, nbr = 0;
-
-    for (int i = 0; i < N; i++)
-        for (int j = 0; j < M; j++)
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
             if (MatFact[i][j].objet == "mensualite") {
                 somme += MatFact[i][j].montant;
                 nbr++;
             }
+        }
+    }
 
     if (nbr == 0) return 0;
-    return (double)somme / nbr;
+    return (float)somme / nbr;
 }
-hkkl
+//Total paiement idcl
+int totalPaiementClient(){
+	Ttp = 0
+	cout<<"saisir l'id du client"<< endl;
+	getline(cin,idcl);
+	for (i = 0; i < N; i++){
+		for (j = 0; j < m; i++){
+			if (MatFact[i][j].idcl == idcl){
+				Ttp+= MatFact[i][j].montant
+			}
+		}
+	}
+	    return Ttp;
+}
+//Total paiement par niveau
+int totalPaiementNiveau(){
+	TtN = 0;
+	cout<<"saisir le niveau du client"<<endl;
+	getline(cin,niveau);
+	for (int i = 0; i < P; i++){
+		if (MatClient[i].niveau == niveau){
+		 idcl= MatClient[i].idcl;
+		for (j= 0;j < n; n ++){
+			for (k= 0;k < n; k++){
+				if (MatClient[j][k].idcl== idcl){
+					 TtN +=tablfact[j][k].montant
+				}
+			}
+		}
+	}
+	 return TtN;
+
+}
+       
+
 
