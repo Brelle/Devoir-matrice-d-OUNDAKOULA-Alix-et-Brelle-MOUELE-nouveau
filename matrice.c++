@@ -215,7 +215,24 @@ int totalPaiementNiveau(){
 		}
 	}
 	 return TtN;
-
+}
+// Total paiement etudiant
+void totalPaiementEtudiant(){
+    TtEI = 0, TtEM = 0, TtET = 0;
+    nomE="";
+	cout<<"saisir le nom de l'etudiant"<<endl;
+	getline(cin,nomE),
+	for (int i = 0; i < P; i++) {
+		if (MatClient[i].nom == nom){
+			idcl = MatClient[i].idcl;
+		}
+		 for (int i = 0; i < N; i++){
+			for (int j = 0; j < M; j++) {
+				 if (MatFact[i][j].idcl == idcl){
+					
+				 }
+			}
+		 }
 }
        
 
