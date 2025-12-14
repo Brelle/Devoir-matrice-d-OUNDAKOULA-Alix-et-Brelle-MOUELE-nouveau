@@ -138,8 +138,10 @@ int main(){
 	 cout<"le total des inscription est:"<<Tt<< endl;
 	 int totalInscriptionFiliere()
 	 cout<<"il y a un total de "<<Ttf<<"inscription dans la filiere" <<filiere<< endl;
-	 int totalInscriptionFiliere()
+	 float moyenneMensualites()
 	 cout<<"la moyenne monsualite est de":<<Mm<< endl;
+	 int totalPaiementClient()
+	 cout<< "il y a eu un total de": <<Ttp<< endl;
 }
 // Total inscription
   int totalInscriptions() {
@@ -222,18 +224,28 @@ void totalPaiementEtudiant(){
     nomE="";
 	cout<<"saisir le nom de l'etudiant"<<endl;
 	getline(cin,nomE),
-	for (int i = 0; i < P; i++) {
+	for (i = 0; i < P; i++){
 		if (MatClient[i].nom == nom){
 			idcl = MatClient[i].idcl;
 		}
-		 for (int i = 0; i < N; i++){
-			for (int j = 0; j < M; j++) {
-				 if (MatFact[i][j].idcl == idcl){
-					
-				 }
+		for (j= 0; j < n; j++){
+			for (k = 0; k < m; k++) {
+				if (MatFact[j][k].objet == "Inscription"{
+					TtEI += MatFact[j][k].montant;
+					else if (MatFact[j][k].objet == "mensualite"){
+						TtEM += MatFact[j][k].montant;
+						else if (MatFact[j][k].objet == "Tenue"){
+							TtET += MatFact[j][k].montant;
+						}
+					}
+				}
+			
+
 			}
-		 }
+		}
+	}
 }
+
        
 
 
