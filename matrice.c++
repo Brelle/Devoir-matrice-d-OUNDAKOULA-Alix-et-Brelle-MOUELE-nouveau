@@ -252,78 +252,54 @@ void totalPaiementEtudiant(){
 		}
 	}
 }
-void listePaiementNomEtudiant() {
-    string nomET;
-    string numclient = "";
-    float montantIN = 0;
-    float montantME = 0;
-    float montantTENUE = 0;
-    bool trouve = false;
+bool listePaiement(
+    Client MatClient[], int P,
+    Facture MatFact[][100], int N, int M,
+    string nomET,
+    float &montantIN, float &montantME, float &montantTENUE
+) {
+    int numclient = -1;
 
-    cout << "Veuillez saisir le nom de l'etudiant : ";
-    getline(cin, nomET);
-
-    // Recherche du client par nom
+    // Recherche de l'étudiant
     for (int i = 0; i < P; i++) {
-        if (tabl[i].nom == nomET) {
-            numclient = tabl[i].idcl;
-            trouve = true;
+        if (MatClient[i].nom == nomET) {
+            numclient = MatClient[i].idcl;
             break;
         }
     }
 
-    // Si l'étudiant n'existe pas
-    if (!trouve) {
-        cout << "L'etudiant n'est pas sur la liste" << endl;
-        return;
+    if (numclient == -1) {
+        return false;   // étudiant non trouvé
     }
 
-    // Parcours des factures
-    for (int j = 0; j < 12; j++) {
-        if (tablfact[j][3].idcl == numclient) {
-
-            if (tablfact[j][2].objet == "inscription") {
-                montantIN += tablfact[j][1].montant;
-            }
-            else if (tablfact[j][2].objet == "mensualite") {
-                montantME += tablfact[j][1].montant;
-            }
-            else if (tablfact[j][2].objet == "tenue") {
-                montantTENUE += tablfact[j][1].montant;
+    // Calcul des montants
+    for (int j = 0; j < N; j++) {
+        for (int k = 0; k < M; k++) {
+            if (MatFact[j][k].idcl == numclient) {
+                if (MatFact[j][k].objet == "inscription")
+                    montantIN += MatFact[j][k].montant;
+                else if (MatFact[j][k].objet == "Mensualité")
+                    montantME += MatFact[j][k].montant;
+                else if (MatFact[j][k].objet == "tenue")
+                    montantTENUE += MatFact[j][k].montant;
             }
         }
     }
-
-    // Affichage des résultats
-    cout << "\nNom : " << nomET << endl;
-    cout << "Objet : inscription | Montant : " << montantIN << " FCFA" << endl;
-    cout << "Objet : mensualite  | Montant : " << montantME << " FCFA" << endl;
-    cout << "Objet : tenue       | Montant : " << montantTENUE << " FCFA" << endl;
+    return true;
 }
+
     // MONTANT MAXIMUM 
-       float maxMontantPaiement() {
-    float max = tabFact[0].montant;
+       float maxMontant(Facture MatFact[][100], int N, int M) {
+    float maxmontant = MatFact[0][0].montant;
 
-    for (int i = 1; i < F; i++) {
-        if (tabFact[i].montant > max) {
-            max = tabFact[i].montant;
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < M; j++) {
+            if (MatFact[i][j].montant > maxmontant) {
+                maxmontant = MatFact[i][j].montant;
+            }
         }
     }
-    return max;
-}
-     int main() {
-
-    remplirFactures();
-    remplirClients();
-
-    float maxMontant = maxMontantPaiement();
-
-    cout << "-----------------------------------" << endl;
-    cout << "Le montant de paiement le plus eleve est : "
-         << maxMontant << " FCFA" << endl;
-    cout << "-----------------------------------" << endl;
-
-    return 0;
+    return maxmontant;
 }
 
        
