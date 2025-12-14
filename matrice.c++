@@ -24,9 +24,6 @@ int nbr, Ttm, Ttp, TtN, TtEI, TtEM, TtET;
 float Mm;
 string idcl, filiere, niveau, nomE;
 
-
-
-
 //remplir Facture
 void remplirMatFact() {
 	tablfact[0][0].idFact = 1;
@@ -160,7 +157,7 @@ int main(){
 		}
 		return Tt;
 	}
-  }
+  };
 // Total inscription par filiere
   int totalInscriptionFiliere() {
     Ttf = 0;
@@ -177,7 +174,7 @@ int main(){
         }
     }
     return Ttf;
-} 
+};
 //Moyenne mensualite
 	float moyenneMensualites() {
     int somme = 0, nbr = 0;
@@ -192,7 +189,7 @@ int main(){
 
     if (nbr == 0) return 0;
     return (float)somme / nbr;
-}
+};
 //Total paiement idcl
 int totalPaiementClient(){
 	Ttp = 0
@@ -206,7 +203,7 @@ int totalPaiementClient(){
 		}
 	}
 	    return Ttp;
-}
+};
 //Total paiement par niveau
 int totalPaiementNiveau(){
 	TtN = 0;
@@ -224,7 +221,7 @@ int totalPaiementNiveau(){
 		}
 	}
 	 return TtN;
-}
+};
 // Total paiement etudiant
 void totalPaiementEtudiant(){
     TtEI = 0, TtEM = 0, TtET = 0;
@@ -301,7 +298,3 @@ bool listePaiement(
     }
     return maxmontant;
 }
-
-       
-
-
