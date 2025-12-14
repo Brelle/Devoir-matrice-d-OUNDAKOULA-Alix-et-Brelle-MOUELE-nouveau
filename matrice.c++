@@ -17,9 +17,16 @@ struct client{
 	string filiere;
 	string niveau;
 };
- facture tablfact[n][m];
-client tabl [P];
-int i,j,k;
+ MatFact tablfact[N][M];
+ MatClient tabcl[P];
+int i, j, k;
+int nbr, Ttm, Ttp, TtN, TtEI, TtEM, TtET;
+float Mm;
+string idcl, filiere, niveau, nomE;
+
+
+
+
 //remplir Facture
 void remplirMatFact() {
 	tablfact[0][0].idFact = 1;
@@ -244,6 +251,79 @@ void totalPaiementEtudiant(){
 			}
 		}
 	}
+}
+void listePaiementNomEtudiant() {
+    string nomET;
+    string numclient = "";
+    float montantIN = 0;
+    float montantME = 0;
+    float montantTENUE = 0;
+    bool trouve = false;
+
+    cout << "Veuillez saisir le nom de l'etudiant : ";
+    getline(cin, nomET);
+
+    // Recherche du client par nom
+    for (int i = 0; i < P; i++) {
+        if (tabl[i].nom == nomET) {
+            numclient = tabl[i].idcl;
+            trouve = true;
+            break;
+        }
+    }
+
+    // Si l'étudiant n'existe pas
+    if (!trouve) {
+        cout << "L'etudiant n'est pas sur la liste" << endl;
+        return;
+    }
+
+    // Parcours des factures
+    for (int j = 0; j < 12; j++) {
+        if (tablfact[j][3].idcl == numclient) {
+
+            if (tablfact[j][2].objet == "inscription") {
+                montantIN += tablfact[j][1].montant;
+            }
+            else if (tablfact[j][2].objet == "mensualite") {
+                montantME += tablfact[j][1].montant;
+            }
+            else if (tablfact[j][2].objet == "tenue") {
+                montantTENUE += tablfact[j][1].montant;
+            }
+        }
+    }
+
+    // Affichage des résultats
+    cout << "\nNom : " << nomET << endl;
+    cout << "Objet : inscription | Montant : " << montantIN << " FCFA" << endl;
+    cout << "Objet : mensualite  | Montant : " << montantME << " FCFA" << endl;
+    cout << "Objet : tenue       | Montant : " << montantTENUE << " FCFA" << endl;
+}
+    // MONTANT MAXIMUM 
+       float maxMontantPaiement() {
+    float max = tabFact[0].montant;
+
+    for (int i = 1; i < F; i++) {
+        if (tabFact[i].montant > max) {
+            max = tabFact[i].montant;
+        }
+    }
+    return max;
+}
+     int main() {
+
+    remplirFactures();
+    remplirClients();
+
+    float maxMontant = maxMontantPaiement();
+
+    cout << "-----------------------------------" << endl;
+    cout << "Le montant de paiement le plus eleve est : "
+         << maxMontant << " FCFA" << endl;
+    cout << "-----------------------------------" << endl;
+
+    return 0;
 }
 
        
