@@ -306,3 +306,63 @@ bool listePaiement(){
     }
     return maxmontant;
 };
+ Trier tableau client par nom
+void trier_client_nom() {
+    // Copie du tableau
+    Client temp[P];
+    for(int i = 0; i < P; i++) {
+        temp[i] = clients[i];
+    }
+    
+    // Tri à bulles par ordre alphabétique
+    for(int i = 0; i < P-1; i++) {
+        for(int j = 0; j < P-i-1; j++) {
+            if(temp[j].nom > temp[j+1].nom) {
+                Client swap = temp[j];
+                temp[j] = temp[j+1];
+                temp[j+1] = swap;
+            }
+        }
+    }
+    
+    cout << "\n=== CLIENTS TRIES PAR NOM ===" << endl;
+    cout << left << setw(10) << "ID" 
+         << setw(20) << "Nom" 
+         << setw(10) << "Filiere" 
+         << setw(10) << "Niveau" << endl;
+    cout << "---------------------------------------------" << endl;
+    
+    for(int i = 0; i < P; i++) {
+        cout << left << setw(10) << temp[i].idCl
+             << setw(20) << temp[i].nom
+             << setw(10) << temp[i].filiere
+             << setw(10) << temp[i].niveau << endl;
+    }
+}
+ // Tri à bulles par montant croissant
+    for(int i = 0; i < TOTAL_FACTURES-1; i++) {
+        for(int j = 0; j < TOTAL_FACTURES-i-1; j++) {
+            if(temp[j].montant > temp[j+1].montant) {
+                Facture swap = temp[j];
+                temp[j] = temp[j+1];
+                temp[j+1] = swap;
+            }
+        }
+    }
+    
+    cout << "\n=== FACTURES TRIEES PAR MONTANT (CROISSANT) ===" << endl;
+    cout << left << setw(10) << "ID Fact" 
+         << setw(15) << "Montant" 
+         << setw(15) << "Objet" 
+         << setw(10) << "ID Client" << endl;
+    cout << "--------------------------------------------" << endl;
+    
+    for(int i = 0; i < TOTAL_FACTURES; i++) {
+        cout << left << setw(10) << temp[i].idFact
+             << fixed << setprecision(0)
+             << setw(15) << temp[i].montant
+             << setw(15) << temp[i].objet
+             << setw(10) << temp[i].idCl << endl;
+    }
+    cout << setprecision(2); // Réinitialiser
+}
