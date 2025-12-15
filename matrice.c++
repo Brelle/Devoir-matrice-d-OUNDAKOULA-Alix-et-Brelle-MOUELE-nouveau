@@ -22,7 +22,7 @@ struct client{
 int i, j, k;
 int nbr, Ttm, Ttp, TtN, TtEI, TtEM, TtET;
 float Mm;
-string idcl, filiere, niveau, nomE;
+string idcl, filiere, niveau, nomET;
 
 //remplir Facture
 void remplirMatFact() {
@@ -135,64 +135,71 @@ int nbclient() {
 };
 
 int main(){
-	remplirMatFact();
-	int nbclient();
-	 cout<<"Le nombre total de client est  "<< nbr << endl;
+	 remplirMatFact();
+	 int nbclient();
+	 cout<<"Le nombre total de client est : "<< nbr << endl;
 	 int totalInscriptions();
-	 cout<"le total des inscription est:"<<Tt<< endl;
+	 cout<"le total des inscription est : " <<Tt<< endl;
 	 int totalInscriptionFiliere()
-	 cout<<"il y a un total de "<<Ttf<<"inscription dans la filiere" <<filiere<< endl;
+	 cout<<"il y a un total de : "<<Ttf<<"inscription dans la filiere" <<filiere<< endl;
 	 float moyenneMensualites()
-	 cout<<"la moyenne monsualite est de":<<Mm<< endl;
+	 cout<<"la moyenne monsualite est de : " <<Mm<< endl;
 	 int totalPaiementClient()
-	 cout<< "il y a eu un total de": <<Ttp<< endl;
+	 cout<< "il y a eu un total de : " <<Ttp<< endl;
+	 int totalPaiementNiveau()
+	 cout<< "il y a eu un total de : " <<TtN<< endl;
+	 void totalPaiementEtudiant()
+	 cout << "Etudiant : " << nomET << "  Inscription : " << TtEI << endl;
+   	 cout << "Etudiant : " << nomET << "  Mensualite : " << TtEM << endl;
+   	 cout << "Etudiant : " << nomET << "  Tenue : " << TtET << endl;
+	 float maxMontant()
+	 cout<<"le montant le plus eleve est : " <<maxMontant<< endl;
 }
 // Total inscription
   int totalInscriptions() {
-    int Tt = 0;
-    for (int i = 0; i < n; i++){
-		for (int j = 0; j < m; j++){
+	Tt = 0;
+    for (i = 0; i < n; i++){
+		for (j = 0; j < m; j++){
 			if (tablfact[i][j].objet == "inscription")
 			Tt++;
 		}
-		return Tt;
 	}
+	return Tt;
   };
 // Total inscription par filiere
   int totalInscriptionFiliere() {
     Ttf = 0;
-    idcl=""
+    string idcl;
 	cout<<"saisir la filiere"<< endl;
 	getline(cin,filiere);
-    for (int i = 0; i < P; i++) {
+    for ( i = 0; i < P; i++) {
         if (MatClient[i].filiere == filiere) {
             idcl = MatClient[i].idcl;
-            for (int j = 0; j < n; j++)
-                for (int k = 0; k < m; k++)
+            for (j = 0; j < n; j++)
+                for ( k = 0; k < m; k++)
                     if (MatFact[j][k].objet == "Inscription" && MatFact[j][k].idcl == idcl)
                         Ttf++;
         }
     }
-    return Ttf;
+      return Ttf;
 };
 //Moyenne mensualite
 	float moyenneMensualites() {
-    int somme = 0, nbr = 0;
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
+    Mm = 0; nbrm = 0; Ttm=0;
+    for ( i = 0; i < n; i++) {
+        for (j = 0; j < m; j++) {
             if (MatFact[i][j].objet == "mensualite") {
-                somme += MatFact[i][j].montant;
-                nbr++;
+                Ttm += MatFact[i][j].montant;
+                nbrm++;
             }
         }
     }
-
     if (nbr == 0) return 0;
-    return (float)somme / nbr;
+    return (float)Ttm / nbrm;
 };
 //Total paiement idcl
 int totalPaiementClient(){
-	Ttp = 0
+	Ttp = 0;
 	cout<<"saisir l'id du client"<< endl;
 	getline(cin,idcl);
 	for (i = 0; i < N; i++){
@@ -202,7 +209,7 @@ int totalPaiementClient(){
 			}
 		}
 	}
-	    return Ttp;
+	  return Ttp;
 };
 //Total paiement par niveau
 int totalPaiementNiveau(){
@@ -225,9 +232,9 @@ int totalPaiementNiveau(){
 // Total paiement etudiant
 void totalPaiementEtudiant(){
     TtEI = 0, TtEM = 0, TtET = 0;
-    nomE="";
+	string nomET, idcl;
 	cout<<"saisir le nom de l'etudiant"<<endl;
-	getline(cin,nomE),
+	getline(cin,nomET),
 	for (i = 0; i < P; i++){
 		if (MatClient[i].nom == nom){
 			idcl = MatClient[i].idcl;
@@ -249,46 +256,47 @@ void totalPaiementEtudiant(){
 		}
 	}
 }
-bool listePaiement(
-    Client MatClient[], int P,
-    Facture MatFact[][100], int N, int M,
-    string nomET,
-    float &montantIN, float &montantME, float &montantTENUE
-) {
-    int numclient = -1;
+//Liste paiement (nom etudiant)
+bool listePaiement(){
+	float montantIN,montantME,montantTENUE;
+	idcl = -1;
+	for ( i = 0; i < P; i++){
+		if (MatClient[i].nom == nomET){
+			numclient = MatClient[i].idcl;
+			 break;
+			}
+			if (idcl== -1){
+				return false;
+			}
+			for (int j = 0; j < N; j++){
+				for (int k = 0; k < M; k++){
+					if (MatFact[j][k].idcl == numclient){
+						if (MatFact[j][k].objet == "inscription"){
+							montantIN += MatFact[j][k].montant;
+							else if (MatFact[j][k].objet == "Mensualite"){
+								montantME += MatFact[j][k].montant;
+								else if (MatFact[j][k].objet == "tenue"){
+									montantTENUE += MatFact[j][k].montant;
+								}
+							}
 
-    // Recherche de l'étudiant
-    for (int i = 0; i < P; i++) {
-        if (MatClient[i].nom == nomET) {
-            numclient = MatClient[i].idcl;
-            break;
-        }
-    }
+						}
+					}
 
-    if (numclient == -1) {
-        return false;   // étudiant non trouvé
-    }
 
-    // Calcul des montants
-    for (int j = 0; j < N; j++) {
-        for (int k = 0; k < M; k++) {
-            if (MatFact[j][k].idcl == numclient) {
-                if (MatFact[j][k].objet == "inscription")
-                    montantIN += MatFact[j][k].montant;
-                else if (MatFact[j][k].objet == "Mensualité")
-                    montantME += MatFact[j][k].montant;
-                else if (MatFact[j][k].objet == "tenue")
-                    montantTENUE += MatFact[j][k].montant;
-            }
-        }
-    }
-    return true;
-}
+				}
+			}
 
-    // MONTANT MAXIMUM 
-       float maxMontant(Facture MatFact[][100], int N, int M) {
-    float maxmontant = MatFact[0][0].montant;
 
+		}
+
+
+	}
+	 return true;
+};
+// MONTANT MAXIMUM 
+ float maxMontant() {
+	float maxmontant = MatFact[0][0].montant;
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < M; j++) {
             if (MatFact[i][j].montant > maxmontant) {
@@ -297,4 +305,4 @@ bool listePaiement(
         }
     }
     return maxmontant;
-}
+};
