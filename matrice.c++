@@ -1,9 +1,9 @@
 #include<iostream>
 #include<string>
 #include<cstdlib>
-#define n 4
-#define m 3
-#define P 30
+#define n 3
+#define m 4
+#define P 8
 using namespace std;
 struct facture{
 	int idFact;
@@ -365,4 +365,130 @@ void trier_client_nom() {
              << setw(10) << temp[i].idCl << endl;
     }
     cout << setprecision(2); // Réinitialiser
+}
+//  FONCTION PRINCIPALE 
+int main() {
+    // Initialisation des données
+    remplir_fact();
+    remplir_client();
+    
+    int choix;
+    string idCl, nom;
+    
+    do {
+        cout << "\n========== MENU PRINCIPAL ==========" << endl;
+        cout << "1.  Nombre de clients" << endl;
+        cout << "2.  Total des inscriptions" << endl;
+        cout << "3.  Total inscriptions par filiere" << endl;
+        cout << "4.  Moyenne des mensualites" << endl;
+        cout << "5.  Total paiement par ID client" << endl;
+        cout << "6.  Total paiement par niveau" << endl;
+        cout << "7.  Total paiement par nom etudiant" << endl;
+        cout << "8.  Affichage par ordre montant/objet" << endl;
+        cout << "9.  Montant maximum -> objet" << endl;
+        cout << "10. Liste versement par ID client" << endl;
+        cout << "11. Trier clients par nom" << endl;
+        cout << "12. Trier factures par montant" << endl;
+        cout << "0.  Quitter" << endl;
+        cout << "Votre choix : ";
+        
+        // Validation de l'entrée
+        if(!(cin >> choix)) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Veuillez entrer un nombre valide!" << endl;
+            pause();
+            continue;
+        }
+        
+        switch(choix) {
+            case 1:
+                cout << "\nNombre de clients: " << nb_client() << endl;
+                pause();
+                break;
+                
+            case 2:
+                cout << fixed << setprecision(0);
+                cout << "\nTotal des inscriptions: " << total_inscription() << " FCFA" << endl;
+                cout << setprecision(2);
+                pause();
+                break;
+                
+            case 3:
+                total_inscription_par_filiere();
+                pause();
+                break;
+                
+            case 4:
+                cout << fixed << setprecision(0);
+                cout << "\nMoyenne des mensualites: " << moyenne_mensualite() << " FCFA" << endl;
+                cout << setprecision(2);
+                pause();
+                break;
+                
+            case 5:
+                cout << "Entrez l'ID client (ex: cl001): ";
+                cin >> idCl;
+                cout << fixed << setprecision(0);
+                cout << "Total paiement pour " << idCl << ": " 
+                     << total_paiement_idcl(idCl) << " FCFA" << endl;
+                cout << setprecision(2);
+                pause();
+                break;
+                
+            case 6:
+                total_paiement_niveau();
+                pause();
+                break;
+                
+            case 7:
+                cin.ignore(); // Vider le buffer
+                cout << "Entrez le nom complet de l'etudiant: ";
+                getline(cin, nom);
+                cout << fixed << setprecision(0);
+                cout << "Total paiement pour " << nom << ": " 
+                     << total_paiement_nom(nom) << " FCFA" << endl;
+                cout << setprecision(2);
+                pause();
+                break;
+                
+            case 8:
+                affichage_ordre_montant_objet();
+                pause();
+                break;
+                
+            case 9:
+                maxMontant();
+                pause();
+                break;
+                
+            case 10:
+                cout << "Entrez l'ID client (ex: cl001): ";
+                cin >> idCl;
+                liste_versement_idcl(idCl);
+                pause();
+                break;
+                
+            case 11:
+                trier_client_nom();
+                pause();
+                break;
+                
+            case 12:
+                trier_facture_montant();
+                pause();
+                break;
+                
+            case 0:
+                cout << "Au revoir !" << endl;
+                break;
+                
+            default:
+                cout << "Choix invalide !" << endl;
+                pause();
+        }
+        
+    } while(choix != 0);
+    
+    return 0;
 }
